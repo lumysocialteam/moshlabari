@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>মসলা বাড়ি piri| Premium Spice Shop in Bangladesh</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --pri: #000000;
+            --bg: #fafafa;
+            --text: #1a1a1a;
+            --accent: #3a3a3a;
+            --white: #ffffff;
+            --light-bg: #f3f3f3;
+            --card-bg: #ffffff;
+            --border: #e0e0e0;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.10);
+            --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.14);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.20);
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 16px;
+            --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-bangla: 'Noto Sans Bengali', 'Bangla', 'Siyam Rupali', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ──────────────── HEADER ──────────────── */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow var(--transition), transform var(--transition);
+            height: 72px;
+            display: flex;
+            align-items: center;
+        }
+        .site-header.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+        .header-inner {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--pri);
+            flex-shrink: 0;
+        }
+        .logo-icon {
+            font-size: 28px;
+            color: var(--pri);
+            transition: transform var(--transition);
+        }
+        .logo-wrap:hover .logo-icon {
+            transform: rotate(-12deg) scale(1.08);
+        }
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            white-space: nowrap;
+            color: var(--pri);
+        }
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+        }
+        .main-nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all var(--transition);
+            white-space: nowrap;
+        }
+        .main-nav a:hover,
+        .main-nav a.active {
+            background: var(--pri);
+            color: var(--white);
+        }
+        .header-phone-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--pri);
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            transition: all var(--transition);
+            flex-shrink: 0;
+            border: 2px solid var(--pri);
+        }
+        .header-phone-btn:hover {
+            background: var(--white);
+            color: var(--pri);
+            box-shadow: var(--shadow-md);
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 8px;
+            z-index: 1001;
+        }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--pri);
+            border-radius: 2px;
+            transition: all var(--transition);
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ──────────────── MOBILE NAV ──────────────── */
+        .mobile-nav-overlay {
+            display: none;
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity var(--transition);
+        }
+        .mobile-nav-overlay.show {
+            display: block;
+            opacity: 1;
+        }
+        .mobile-nav-panel {
+            position: fixed;
+            top: 72px;
+            right: -320px;
+            width: 280px;
+            height: calc(100vh - 72px);
+            background: var(--white);
+            z-index: 1000;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: right var(--transition);
+            box-shadow: var(--shadow-xl);
+        }
+        .mobile-nav-panel.show {
+            right: 0;
+        }
+        .mobile-nav-panel a {
+            display: block;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 1.05rem;
+            padding: 12px 16px;
+            border-radius: 8px;
+            transition: all var(--transition);
+        }
+        .mobile-nav-panel a:hover,
+        .mobile-nav-panel a.active {
+            background: var(--pri);
+            color: var(--white);
+        }
+        .mobile-nav-panel .mobile-phone-btn {
+            margin-top: auto;
+            text-align: center;
+            background: var(--pri);
+            color: var(--white);
+            padding: 14px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all var(--transition);
+        }
+        .mobile-nav-panel .mobile-phone-btn:hover {
+            background: var(--accent);
+        }
+
+        /* ──────────────── HERO ──────────────── */
+        .hero {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 70px 24px 60px;
+            text-align: center;
+        }
+        .hero-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: var(--pri);
+        }
+        .hero .subtitle {
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+        .hero-btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition);
+            border: 2px solid transparent;
+            letter-spacing: 0.1px;
+        }
+        .btn-primary {
+            background: var(--pri);
+            color: var(--white);
+            border-color: var(--pri);
+        }
+        .btn-primary:hover {
+            background: var(--white);
+            color: var(--pri);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: var(--white);
+            color: var(--pri);
+            border-color: var(--pri);
+        }
+        .btn-outline:hover {
+            background: var(--pri);
+            color: var(--white);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        /* ──────────────── SECTIONS ──────────────── */
+        .section {
+            padding: 60px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 44px;
+        }
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--pri);
+            margin-bottom: 8px;
+        }
+        .section-header .section-subtitle {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* ──────────────── PRODUCT GRID ──────────────── */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .product-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all var(--transition);
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-sm);
+        }
+        .product-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+            border-color: #ccc;
+        }
+        .product-card-img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: #eaeaea;
+            position: relative;
+        }
+        .product-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            display: block;
+        }
+        .product-card:hover .product-card-img img {
+            transform: scale(1.06);
+        }
+        .product-card-body {
+            padding: 18px 16px 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .product-card-body .name-bangla {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--pri);
+            margin-bottom: 2px;
+        }
+        .product-card-body .name-english {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .product-card-body .desc {
+            font-size: 0.88rem;
+            color: #555;
+            margin-bottom: 12px;
+            flex-grow: 1;
+            line-height: 1.4;
+        }
+        .product-card-body .price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .price-current {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--pri);
+        }
+        .price-old {
+            font-size: 0.9rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+        .btn-buy {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            width: 100%;
+            padding: 11px 18px;
+            background: var(--pri);
+            color: var(--white);
+            border: 2px solid var(--pri);
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all var(--transition);
+            text-align: center;
+        }
+        .btn-buy:hover {
+            background: var(--white);
+            color: var(--pri);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* ──────────────── MODAL ──────────────── */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition);
+        }
+        .modal-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal-dialog {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            max-width: 520px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            transform: translateY(20px);
+            transition: transform var(--transition);
+        }
+        .modal-overlay.show .modal-dialog {
+            transform: translateY(0);
+        }
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 1.1rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+            color: var(--pri);
+        }
+        .modal-close:hover {
+            background: var(--pri);
+            color: var(--white);
+            border-color: var(--pri);
+        }
+        .modal-img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            background: #eaeaea;
+        }
+        .modal-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .modal-body {
+            padding: 24px 22px 28px;
+        }
+        .modal-body .modal-name-bangla {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--pri);
+            margin-bottom: 2px;
+        }
+        .modal-body .modal-name-english {
+            font-size: 0.95rem;
+            color: #777;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        .modal-body .modal-desc {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .modal-body .modal-price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .modal-body .modal-price-current {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--pri);
+        }
+        .modal-body .modal-price-old {
+            font-size: 1rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+        .modal-order-line {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .modal-phone-display {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--pri);
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 16px;
+            transition: color var(--transition);
+            letter-spacing: 0.2px;
+        }
+        .modal-phone-display:hover {
+            color: #444;
+            text-decoration: underline;
+        }
+        .btn-call-modal {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            justify-content: center;
+            padding: 14px 24px;
+            background: var(--pri);
+            color: var(--white);
+            border: 2px solid var(--pri);
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all var(--transition);
+            text-align: center;
+        }
+        .btn-call-modal:hover {
+            background: var(--white);
+            color: var(--pri);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ──────────────── CONTACT ──────────────── */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 22px;
+            text-align: center;
+            transition: all var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        .contact-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+            border-color: #ccc;
+        }
+        .contact-card .contact-icon {
+            font-size: 2rem;
+            color: var(--pri);
+            margin-bottom: 12px;
+        }
+        .contact-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--pri);
+            margin-bottom: 6px;
+        }
+        .contact-card p,
+        .contact-card a {
+            font-size: 0.9rem;
+            color: #555;
+            text-decoration: none;
+            line-height: 1.5;
+            transition: color var(--transition);
+        }
+        .contact-card a:hover {
+            color: var(--pri);
+            text-decoration: underline;
+        }
+
+        /* ──────────────── FOOTER ──────────────── */
+        .site-footer {
+            background: var(--pri);
+            color: #ccc;
+            padding: 40px 24px 28px;
+            text-align: center;
+        }
+        .footer-inner {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .footer-store-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        .footer-address {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        .footer-social {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+        .footer-social a {
+            color: #bbb;
+            font-size: 1.3rem;
+            transition: all var(--transition);
+        }
+        .footer-social a:hover {
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        .footer-credit {
+            font-size: 0.8rem;
+            color: #777;
+            border-top: 1px solid #333;
+            padding-top: 16px;
+            margin-top: 8px;
+        }
+
+        /* ──────────────── RESPONSIVE ──────────────── */
+        @media (max-width: 1024px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 18px;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none;
+            }
+            .header-phone-btn {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .hero {
+                padding: 44px 16px 40px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+            .section {
+                padding: 40px 16px;
+            }
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+            .btn {
+                padding: 12px 22px;
+                font-size: 0.9rem;
+            }
+            .modal-dialog {
+                max-width: 95vw;
+                border-radius: var(--radius);
+            }
+            .modal-img {
+                border-radius: var(--radius) var(--radius) 0 0;
+            }
+            .logo-text {
+                font-size: 1.05rem;
+            }
+            .logo-icon {
+                font-size: 24px;
+            }
+            .site-header {
+                height: 62px;
+            }
+            .mobile-nav-overlay,
+            .mobile-nav-panel {
+                top: 62px;
+            }
+            .mobile-nav-panel {
+                height: calc(100vh - 62px);
+            }
+            html {
+                scroll-padding-top: 70px;
+            }
+        }
+        @media (max-width: 400px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .product-card-body {
+                padding: 12px 10px 14px;
+            }
+            .product-card-body .name-bangla {
+                font-size: 0.95rem;
+            }
+            .product-card-body .desc {
+                font-size: 0.78rem;
+            }
+            .btn-buy {
+                font-size: 0.85rem;
+                padding: 9px 14px;
+            }
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════ HEADER ═══════════ -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-inner">
+            <a href="#" class="logo-wrap" aria-label="মসলা বাড়ি Home">
+                <i class="fa-solid fa-mortar-pestle logo-icon"></i>
+                <span class="logo-text" id="logoText">মসলা বাড়ি</span>
+            </a>
+            <nav>
+                <ul class="main-nav" id="mainNav"></ul>
+            </nav>
+            <a href="tel:+8801620555989" class="header-phone-btn" id="headerPhoneBtn">
+                <i class="fa-solid fa-phone"></i> <span id="headerPhoneText">+880 1620-555989</span>
+            </a>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <div class="mobile-nav-panel" id="mobileNavPanel"></div>
+
+    <!-- ═══════════ HERO ═══════════ -->
+    <section class="hero" id="heroSection">
+        <div class="hero-inner">
+            <h1 id="heroTitle">Pure Spices,<br>Straight to Your Kitchen</h1>
+            <p class="subtitle" id="heroSubtitle">Premium quality মসলা delivered from our store to your doorstep in Chittagong.</p>
+            <div class="hero-btns">
+                <a href="#productsSection" class="btn btn-primary" id="heroShopBtn">🛒 Shop Now</a>
+                <a href="tel:+8801620555989" class="btn btn-outline" id="heroCallBtn">📞 Call to Order</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════ PRODUCTS ═══════════ -->
+    <section class="section" id="productsSection">
+        <div class="section-header">
+            <h2 id="productsTitle">Our Premium Spices</h2>
+            <p class="section-subtitle" id="productsSubtitle">Handpicked, aromatic, and fresh — straight from the finest sources</p>
+        </div>
+        <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <!-- ═══════════ MODAL OVERLAY ═══════════ -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-dialog" id="modalDialog">
+            <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+            <div class="modal-img" id="modalImgWrap">
+                <img src="" alt="" id="modalImg">
+            </div>
+            <div class="modal-body">
+                <div class="modal-name-bangla" id="modalNameBangla"></div>
+                <div class="modal-name-english" id="modalNameEnglish"></div>
+                <p class="modal-desc" id="modalDesc"></p>
+                <div class="modal-price-row">
+                    <span class="modal-price-current" id="modalPriceCurrent"></span>
+                    <span class="modal-price-old" id="modalPriceOld" style="display:none;"></span>
+                </div>
+                <p class="modal-order-line">To order, please call us:</p>
+                <a href="tel:+8801620555989" class="modal-phone-display" id="modalPhoneDisplay">+880 1620-555989</a>
+                <a href="tel:+8801620555989" class="btn-call-modal" id="modalCallBtn">
+                    <i class="fa-solid fa-phone"></i> Call Now to Order
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════ CONTACT ═══════════ -->
+    <section class="section" id="contactSection">
+        <div class="section-header">
+            <h2 id="contactTitle">Contact Us</h2>
+            <p class="section-subtitle" id="contactSubtitle">We'd love to hear from you — reach out anytime</p>
+        </div>
+        <div class="contact-grid" id="contactGrid"></div>
+    </section>
+
+    <!-- ═══════════ FOOTER ═══════════ -->
+    <footer class="site-footer" id="siteFooter">
+        <div class="footer-inner">
+            <div class="footer-store-name" id="footerStoreName">মসলা বাড়ি</div>
+            <p class="footer-address" id="footerAddress"></p>
+            <div class="footer-social" id="footerSocial"></div>
+            <p class="footer-credit" id="footerCredit"></p>
+        </div>
+    </footer>
+
+    <script>
+        // ╔══════════════════════════════════════════════╗
+        // ║           SITE_CONFIG                       ║
+        // ║  Edit this object to customise the entire   ║
+        // ║  website — colours, text, products, all.    ║
+        // ╚══════════════════════════════════════════════╝
+        const SITE_CONFIG = {
+  "store": {
+    "name": "মসলা বাড়ি",
+    "nameEnglish": "Mosla Bari",
+    "tagline": "Premium Spice Shop",
+    "phone": "+8801620555989",
+    "phoneDisplay": "+880 1620-555989",
+    "email": "info.moshlabari@gmail.com",
+    "address": "Boropol, Halishahar Housing Estate, Ward No. 26, North Halishahar, Chittagong - 4000, Bangladesh",
+    "addressLines": [
+      "Boropol",
+      "Halishahar Housing Estate",
+      "Ward No. 26",
+      "North Halishahar",
+      "Chittagong - 4000",
+      "Bangladesh"
+    ]
+  },
+  "theme": {
+    "primary": "#000000",
+    "background": "#ffffff",
+    "text": "#000000",
+    "accent": "#3a3a3a",
+    "white": "#ffffff",
+    "lightBg": "#f3f3f3",
+    "cardBg": "#ffffff",
+    "border": "#e0e0e0"
+  },
+  "nav": [
+    {
+      "label": "Home",
+      "href": "#heroSection",
+      "icon": "fa-home"
+    },
+    {
+      "label": "Products",
+      "href": "#productsSection",
+      "icon": "fa-jar"
+    },
+    {
+      "label": "Contact",
+      "href": "#contactSection",
+      "icon": "fa-envelope"
+    },
+    {
+      "label": "About",
+      "href": "#siteFooter",
+      "icon": "fa-circle-info"
+    }
+  ],
+  "hero": {
+    "title": "খাঁটি মশলার স্বাদ,<br>পৌঁছে যাবে আপনার রান্নাঘরে",
+    "subtitle": "প্রিমিয়াম কোয়ালিটির সেরা সব মশলা আমাদের স্টোর থেকে সরাসরি পৌঁছে যাচ্ছে আপনার ঠিকানায়।",
+    "shopBtnText": "🛒 Shop Now",
+    "callBtnText": "📞 Call to Order"
+  },
+  "productsSection": {
+    "title": "Our Premium Spices",
+    "subtitle": "Handpicked, aromatic, and fresh — straight from the finest sources"
+  },
+  "products": [
+    {
+      "id": "turmeric",
+      "nameBangla": "হলুদ",
+      "nameEnglish": "Turmeric Powder",
+      "description": "Pure, vibrant turmeric — essential for curries, health tonics.",
+      "fullDescription": "Our turmeric powder is sourced from the finest farms in Bangladesh, sun-dried and stone-ground to preserve its natural colour, flavour, and curcumin content.",
+      "price": 280,
+      "oldPrice": 320,
+      "image": "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=400&h=300&fit=crop&crop=center",
+      "imageLarge": "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=600&h=450&fit=crop&crop=center"
+    },
+    {
+      "id": "cumin",
+      "nameBangla": "জিরা",
+      "nameEnglish": "Cumin Seeds",
+      "description": "Aromatic whole cumin — the backbone of Bangladeshi tempering.",
+      "fullDescription": "Hand-sorted cumin seeds with an intense, earthy aroma.",
+      "price": 450,
+      "oldPrice": 520,
+      "image": "https://images.unsplash.com/photo-1599909814863-f5477c3f5e98?w=400&h=300&fit=crop&crop=center",
+      "imageLarge": "https://images.unsplash.com/photo-1599909814863-f5477c3f5e98?w=600&h=450&fit=crop&crop=center"
+    },
+    {
+      "id": "garam-masala",
+      "nameBangla": "গরম মসলা",
+      "nameEnglish": "Garam Masala",
+      "description": "Our signature roasted spice blend.",
+      "fullDescription": "A carefully balanced house blend of cinnamon, cardamom, cloves, cumin, coriander.",
+      "price": 380,
+      "oldPrice": null,
+      "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&h=300&fit=crop&crop=center",
+      "imageLarge": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&h=450&fit=crop&crop=center"
+    },
+    {
+      "id": "red-chili",
+      "nameBangla": "শুকনা মরিচ",
+      "nameEnglish": "Dried Red Chili",
+      "description": "Fiery whole dried chilies.",
+      "fullDescription": "Sun-dried red chilies with a smoky, pungent heat.",
+      "price": 320,
+      "oldPrice": 380,
+      "image": "https://images.unsplash.com/photo-1588252303782-cb90119e0936?w=400&h=300&fit=crop&crop=center",
+      "imageLarge": "https://images.unsplash.com/photo-1588252303782-cb90119e0936?w=600&h=450&fit=crop&crop=center"
+    },
+    {
+      "id": "coriander",
+      "nameBangla": "ধনে",
+      "nameEnglish": "Coriander Seeds",
+      "description": "Fragrant coriander seeds.",
+      "fullDescription": "Plump, golden coriander seeds with a bright, lemony aroma.",
+      "price": 180,
+      "oldPrice": null,
+      "image": "https://images.unsplash.com/photo-1625943553852-781c6dd46faa?w=400&h=300&fit=crop&crop=center",
+      "imageLarge": "https://images.unsplash.com/photo-1625943553852-781c6dd46faa?w=600&h=450&fit=crop&crop=center"
+    },
+    {
+      "id": "cardamom",
+      "nameBangla": "এলাচ",
+      "nameEnglish": "Green Cardamom",
+      "description": "Premium green cardamom pods.",
+      "fullDescription": "Handpicked green cardamom pods from the hills.",
+      "price": 850,
+      "oldPrice": null,
+      "image": "https://images.unsplash.com/photo-1552189053-78ca72e46e2d?w=400&h=300&fit=crop&crop=center",
+      "imageLarge": "https://images.unsplash.com/photo-1552189053-78ca72e46e2d?w=600&h=450&fit=crop&crop=center"
+    },
+    {
+      "id": "cinnamon",
+      "nameBangla": "দারুচিনি",
+      "nameEnglish": "Ceylon Cinnamon",
+      "description": "Delicate Ceylon cinnamon sticks.",
+      "fullDescription": "True Ceylon cinnamon sticks with thin, papery layers.",
+      "price": 420,
+      "oldPrice": null,
+      "image": "https://images.unsplash.com/photo-1639984552499-0c8098b5da88?w=400&h=300&fit=crop&crop=center",
+      "imageLarge": "https://images.unsplash.com/photo-1639984552499-0c8098b5da88?w=600&h=450&fit=crop&crop=center"
+    },
+    {
+      "id": "bay-leaves",
+      "nameBangla": "তেজপাতা",
+      "nameEnglish": "Bay Leaves",
+      "description": "Aromatic bay leaves.",
+      "fullDescription": "Dried bay leaves with a mild, tea-like fragrance.",
+      "price": 120,
+      "oldPrice": 150,
+      "image": "https://images.unsplash.com/photo-1600693362240-2a18b4b1e4c5?w=400&h=300&fit=crop&crop=center",
+      "imageLarge": "https://images.unsplash.com/photo-1600693362240-2a18b4b1e4c5?w=600&h=450&fit=crop&crop=center"
+    }
+  ],
+  "contactSection": {
+    "title": "Contact Us",
+    "subtitle": "We'd love to hear from you — reach out anytime",
+    "cards": [
+      {
+        "icon": "fa-solid fa-phone",
+        "title": "Phone",
+        "content": "+880 1620-555989",
+        "link": "tel:+8801620555989",
+        "isLink": true
+      },
+      {
+        "icon": "fa-solid fa-envelope",
+        "title": "Email",
+        "content": "info.moshlabari@gmail.com",
+        "link": "mailto:info.moshlabari@gmail.com",
+        "isLink": true
+      },
+      {
+        "icon": "fa-solid fa-location-dot",
+        "title": "Address",
+        "content": "Boropol, Halishahar Housing Estate,<br>Ward No. 26, North Halishahar,<br>Chittagong - 4000, Bangladesh",
+        "link": null,
+        "isLink": false
+      }
+    ]
+  },
+  "footer": {
+    "socialLinks": [
+      {
+        "icon": "fa-brands fa-facebook-f",
+        "href": "https://www.facebook.com/moshlabariofficial",
+        "label": "Facebook"
+      },
+      {
+        "icon": "fa-brands fa-youtube",
+        "href": "https://www.youtube.com/@moshlabariofficial",
+        "label": "YouTube"
+      },
+      {
+        "icon": "fa-brands fa-phone",
+        "href": "tel:+8801620555989",
+        "label": "Phone"
+      },
+      {
+        "icon": "fa-brands fa-envelope",
+        "href": "mailto:info.moshlabari@gmail.com",
+        "label": "mail"
+      }
+    ],
+    "credit": "Developed by <strong>RNS AGENCY</strong><br> Trade License No: TRAD/DNCC/033465/2026"
+  }
+}
+
+        // ╔══════════════════════════════════════════════╗
+        // ║        APPLY CONFIG & BUILD SITE            ║
+        // ╚══════════════════════════════════════════════╝
+        document.addEventListener('DOMContentLoaded', () => {
+            const cfg = SITE_CONFIG;
+
+            // ── Set CSS custom properties ──
+            const root = document.documentElement;
+            root.style.setProperty('--pri', cfg.theme.primary);
+            root.style.setProperty('--bg', cfg.theme.background);
+            root.style.setProperty('--text', cfg.theme.text);
+            root.style.setProperty('--accent', cfg.theme.accent);
+            root.style.setProperty('--white', cfg.theme.white);
+            root.style.setProperty('--light-bg', cfg.theme.lightBg);
+            root.style.setProperty('--card-bg', cfg.theme.cardBg);
+            root.style.setProperty('--border', cfg.theme.border);
+
+            // ── Set document title ──
+            document.title = cfg.store.name + ' | Premium Spice Shop in Bangladesh';
+
+            // ── Logo ──
+            document.getElementById('logoText').textContent = cfg.store.name;
+
+            // ── Header phone button ──
+            const headerPhoneBtn = document.getElementById('headerPhoneBtn');
+            headerPhoneBtn.href = 'tel:' + cfg.store.phone;
+            document.getElementById('headerPhoneText').textContent = cfg.store.phoneDisplay;
+
+            // ── Build main navigation ──
+            const mainNav = document.getElementById('mainNav');
+            cfg.nav.forEach(item => {
+                const li = document.createElement('li');
+                const a = document.createElement('a');
+                a.href = item.href;
+                a.innerHTML = '<i class="fa-solid ' + item.icon + '"></i> ' + item.label;
+                a.setAttribute('data-nav', item.label.toLowerCase());
+                li.appendChild(a);
+                mainNav.appendChild(li);
+            });
+
+            // ── Build mobile nav panel ──
+            const mobileNavPanel = document.getElementById('mobileNavPanel');
+            cfg.nav.forEach(item => {
+                const a = document.createElement('a');
+                a.href = item.href;
+                a.innerHTML = '<i class="fa-solid ' + item.icon + '"></i> ' + item.label;
+                a.setAttribute('data-nav-mobile', item.label.toLowerCase());
+                mobileNavPanel.appendChild(a);
+            });
+            const mobilePhoneLink = document.createElement('a');
+            mobilePhoneLink.href = 'tel:' + cfg.store.phone;
+            mobilePhoneLink.className = 'mobile-phone-btn';
+            mobilePhoneLink.innerHTML =
+                '<i class="fa-solid fa-phone"></i> Call ' + cfg.store.phoneDisplay;
+            mobileNavPanel.appendChild(mobilePhoneLink);
+
+            // ── Hero section ──
+            document.getElementById('heroTitle').innerHTML = cfg.hero.title;
+            document.getElementById('heroSubtitle').textContent = cfg.hero.subtitle;
+            document.getElementById('heroShopBtn').innerHTML = cfg.hero.shopBtnText;
+            document.getElementById('heroCallBtn').innerHTML = cfg.hero.callBtnText;
+            document.getElementById('heroCallBtn').href = 'tel:' + cfg.store.phone;
+
+            // ── Products section header ──
+            document.getElementById('productsTitle').textContent = cfg.productsSection.title;
+            document.getElementById('productsSubtitle').textContent = cfg.productsSection.subtitle;
+
+            // ── Build product grid ──
+            const productsGrid = document.getElementById('productsGrid');
+            cfg.products.forEach((prod, index) => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.setAttribute('data-product-id', prod.id);
+                card.setAttribute('data-product-index', index);
+
+                card.innerHTML = `
+                    <div class="product-card-img">
+                        <img src="${prod.image}" alt="${prod.nameBangla} - ${prod.nameEnglish}" 
+                             loading="lazy"
+                             onerror="this.src='https://images.unsplash.com/photo-1606914469633-bd39206ea81c?w=400&h=300&fit=crop&crop=center'; this.onerror=null;">
+                    </div>
+                    <div class="product-card-body">
+                        <div class="name-bangla">${prod.nameBangla}</div>
+                        <div class="name-english">${prod.nameEnglish}</div>
+                        <p class="desc">${prod.description}</p>
+                        <div class="price-row">
+                            <span class="price-current">৳${prod.price}</span>
+                            ${prod.oldPrice ? '<span class="price-old">৳' + prod.oldPrice + '</span>' : ''}
+                        </div>
+                        <button class="btn-buy" data-product-index="${index}" aria-label="Buy ${prod.nameBangla}">
+                            <i class="fa-solid fa-bag-shopping"></i> Buy Now
+                        </button>
+                    </div>
+                `;
+                productsGrid.appendChild(card);
+            });
+
+            // ── Contact section ──
+            document.getElementById('contactTitle').textContent = cfg.contactSection.title;
+            document.getElementById('contactSubtitle').textContent = cfg.contactSection.subtitle;
+            const contactGrid = document.getElementById('contactGrid');
+            cfg.contactSection.cards.forEach(card => {
+                const div = document.createElement('div');
+                div.className = 'contact-card';
+                let contentHTML = '';
+                if (card.isLink && card.link) {
+                    contentHTML =
+                        '<a href="' + card.link + '">' + card.content.replace(/<br>/g, ' ') + '</a>';
+                } else {
+                    contentHTML = '<p>' + card.content + '</p>';
+                }
+                div.innerHTML = `
+                    <div class="contact-icon"><i class="${card.icon}"></i></div>
+                    <h3>${card.title}</h3>
+                    ${contentHTML}
+                `;
+                contactGrid.appendChild(div);
+            });
+
+            // ── Footer ──
+            document.getElementById('footerStoreName').textContent = cfg.store.name;
+            document.getElementById('footerAddress').textContent = cfg.store.address;
+            const footerSocial = document.getElementById('footerSocial');
+            cfg.footer.socialLinks.forEach(link => {
+                const a = document.createElement('a');
+                a.href = link.href;
+                a.setAttribute('aria-label', link.label);
+                a.setAttribute('target', '_blank');
+                a.setAttribute('rel', 'noopener noreferrer');
+                a.innerHTML = '<i class="' + link.icon + '"></i>';
+                footerSocial.appendChild(a);
+            });
+            document.getElementById('footerCredit').innerHTML =
+                '&copy; ' + new Date().getFullYear() + ' ' + cfg.store.name + '. ' + cfg.footer.credit +
+                '.';
+
+            // ── Modal elements ──
+            const modalOverlay = document.getElementById('modalOverlay');
+            const modalDialog = document.getElementById('modalDialog');
+            const modalClose = document.getElementById('modalClose');
+            const modalImg = document.getElementById('modalImg');
+            const modalNameBangla = document.getElementById('modalNameBangla');
+            const modalNameEnglish = document.getElementById('modalNameEnglish');
+            const modalDesc = document.getElementById('modalDesc');
+            const modalPriceCurrent = document.getElementById('modalPriceCurrent');
+            const modalPriceOld = document.getElementById('modalPriceOld');
+            const modalPhoneDisplay = document.getElementById('modalPhoneDisplay');
+            const modalCallBtn = document.getElementById('modalCallBtn');
+
+            // ── Open modal function ──
+            function openModal(productIndex) {
+                const prod = cfg.products[productIndex];
+                if (!prod) return;
+                modalImg.src = prod.imageLarge || prod.image;
+                modalImg.alt = prod.nameBangla + ' - ' + prod.nameEnglish;
+                modalImg.onerror = function() {
+                    this.src =
+                        'https://images.unsplash.com/photo-1606914469633-bd39206ea81c?w=600&h=450&fit=crop&crop=center';
+                    this.onerror = null;
+                };
+                modalNameBangla.textContent = prod.nameBangla;
+                modalNameEnglish.textContent = prod.nameEnglish;
+                modalDesc.textContent = prod.fullDescription;
+                modalPriceCurrent.textContent = '৳' + prod.price;
+                if (prod.oldPrice) {
+                    modalPriceOld.textContent = '৳' + prod.oldPrice;
+                    modalPriceOld.style.display = 'inline';
+                } else {
+                    modalPriceOld.textContent = '';
+                    modalPriceOld.style.display = 'none';
+                }
+                modalPhoneDisplay.textContent = cfg.store.phoneDisplay;
+                modalPhoneDisplay.href = 'tel:' + cfg.store.phone;
+                modalCallBtn.href = 'tel:' + cfg.store.phone;
+                modalOverlay.classList.add('show');
+                document.body.style.overflow = 'hidden';
+                modalDialog.scrollTop = 0;
+                // Focus trap: focus the close button
+                setTimeout(() => modalClose.focus(), 100);
+            }
+
+            // ── Close modal function ──
+            function closeModal() {
+                modalOverlay.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+
+            // ── Delegate Buy Now clicks ──
+            productsGrid.addEventListener('click', (e) => {
+                const btn = e.target.closest('.btn-buy');
+                if (!btn) return;
+                const index = parseInt(btn.getAttribute('data-product-index'), 10);
+                if (!isNaN(index) && index >= 0 && index < cfg.products.length) {
+                    openModal(index);
+                }
+            });
+
+            // ── Modal close events ──
+            modalClose.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modalOverlay.classList.contains('show')) {
+                    closeModal();
+                }
+            });
+
+            // ── Hamburger / Mobile menu ──
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+
+            function openMobileMenu() {
+                hamburgerBtn.classList.add('active');
+                mobileNavOverlay.classList.add('show');
+                mobileNavPanel.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMobileMenu() {
+                hamburgerBtn.classList.remove('active');
+                mobileNavOverlay.classList.remove('show');
+                mobileNavPanel.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+
+            hamburgerBtn.addEventListener('click', () => {
+                if (hamburgerBtn.classList.contains('active')) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
+            });
+            mobileNavOverlay.addEventListener('click', closeMobileMenu);
+
+            // Close mobile menu when a nav link is clicked
+            mobileNavPanel.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    setTimeout(closeMobileMenu, 200);
+                });
+            });
+
+            // Close mobile menu on Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileNavPanel.classList.contains('show')) {
+                    closeMobileMenu();
+                }
+            });
+
+            // ── Sticky header shadow on scroll ──
+            const siteHeader = document.getElementById('siteHeader');
+            function updateHeaderShadow() {
+                if (window.scrollY > 10) {
+                    siteHeader.classList.add('scrolled');
+                } else {
+                    siteHeader.classList.remove('scrolled');
+                }
+            }
+            window.addEventListener('scroll', updateHeaderShadow, { passive: true });
+            updateHeaderShadow();
+
+            // ── Active nav highlight based on scroll ──
+            function updateActiveNav() {
+                const sections = ['heroSection', 'productsSection', 'contactSection'];
+                const navLinks = mainNav.querySelectorAll('a[data-nav]');
+                const mobileNavLinks = mobileNavPanel.querySelectorAll('a[data-nav-mobile]');
+                let currentSection = 'heroSection';
+                sections.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el && window.scrollY >= el.offsetTop - 150) {
+                        currentSection = id;
+                    }
+                });
+                // Check if near footer
+                const footer = document.getElementById('siteFooter');
+                if (footer && window.innerHeight + window.scrollY >= document.body.offsetHeight -
+                    100) {
+                    currentSection = 'siteFooter';
+                }
+                const labelMap = {
+                    'heroSection': 'home',
+                    'productsSection': 'products',
+                    'contactSection': 'contact',
+                    'siteFooter': 'about'
+                };
+                const activeLabel = labelMap[currentSection] || 'home';
+                navLinks.forEach(a => {
+                    a.classList.toggle('active', a.getAttribute('data-nav') === activeLabel);
+                });
+                mobileNavLinks.forEach(a => {
+                    a.classList.toggle('active', a.getAttribute('data-nav-mobile') ===
+                        activeLabel);
+                });
+            }
+            window.addEventListener('scroll', updateActiveNav, { passive: true });
+            updateActiveNav();
+
+            // ── Smooth scroll for internal anchor links (fallback) ──
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            console.log('✅ মসলা বাড়ি website initialized successfully.');
+            console.log('📞 Order line: ' + cfg.store.phoneDisplay);
+            console.log('🛠️ Developed by RNS priti');
+        });
+    </script>
+</body>
+</html>
