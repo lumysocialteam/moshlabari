@@ -852,6 +852,7 @@
         </div>
     </footer>
 
+
     <script>
         // ╔══════════════════════════════════════════════╗
         // ║           SITE_CONFIG                       ║
@@ -878,8 +879,8 @@
   },
   "theme": {
     "primary": "#000000",
-    "background": "#ffffff",
-    "text": "#000000",
+    "background": "#fafafa",
+    "text": "#1a1a1a",
     "accent": "#3a3a3a",
     "white": "#ffffff",
     "lightBg": "#f3f3f3",
@@ -909,7 +910,7 @@
     }
   ],
   "hero": {
-    "title": "খাঁটি মশলার স্বাদ,<br>পৌঁছে যাবে আপনার রান্নাঘরে",
+    "title": "খাঁটি মশলার স্বাদ,<br>পৌঁছে যাবে আপনার রান্নাঘরে\n",
     "subtitle": "প্রিমিয়াম কোয়ালিটির সেরা সব মশলা আমাদের স্টোর থেকে সরাসরি পৌঁছে যাচ্ছে আপনার ঠিকানায়।",
     "shopBtnText": "🛒 Shop Now",
     "callBtnText": "📞 Call to Order"
@@ -1014,20 +1015,24 @@
     "cards": [
       {
         "icon": "fa-solid fa-phone",
-        "href": "tel:+8801620555989",
-        "label": "Phone"
+        "title": "Phone",
+        "content": "+880 1620-555989",
+        "link": "tel:+8801620555989",
+        "isLink": true
       },
       {
         "icon": "fa-solid fa-envelope",
-        "href": "mailto:info.moshlabari@gmail.com",
-        "label": "mail"
+        "title": "Email",
+        "content": "info.moshlabari@gmail.com",
+        "link": "mailto:info.moshlabari@gmail.com",
+        "isLink": true
       },
       {
         "icon": "fa-solid fa-location-dot",
         "title": "Address",
         "content": "Boropol, Halishahar Housing Estate,<br>Ward No. 26, North Halishahar,<br>Chittagong - 4000, Bangladesh",
-        "link": null,
-        "isLink": false
+        "link": "https://maps.app.goo.gl/Qs7cSTsAXggpFeai9",
+        "isLink": true
       }
     ]
   },
@@ -1039,14 +1044,25 @@
         "label": "Facebook"
       },
       {
+        "icon": "fa-brands fa-instagram",
+        "href": "instagram.com",
+        "label": "Instagram"
+      },
+      {
+        "icon": "fa-brands fa-whatsapp",
+        "href": "https://wa.me/8801620555989",
+        "label": "WhatsApp"
+      },
+      {
         "icon": "fa-brands fa-youtube",
         "href": "https://www.youtube.com/@moshlabariofficial",
         "label": "YouTube"
-      },
+      }
     ],
     "credit": "Developed by <strong>RNS AGENCY</strong><br> Trade License No: TRAD/DNCC/033465/2026"
   }
 }
+
 
         // ╔══════════════════════════════════════════════╗
         // ║        APPLY CONFIG & BUILD SITE            ║
@@ -1360,7 +1376,7 @@
 
             console.log('✅ মসলা বাড়ি website initialized successfully.');
             console.log('📞 Order line: ' + cfg.store.phoneDisplay);
-            console.log('🛠️ Developed by RNS priti');
+            console.log('🛠️ Developed by RNS ai');
         });
     </script>
 </body>
